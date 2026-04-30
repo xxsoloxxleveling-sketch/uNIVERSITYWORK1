@@ -15,6 +15,10 @@ public class Main {
         // Seed
         fleetManager.addVehicle("ABC-123", "Tesla Model 3");
         fleetManager.addVehicle("XYZ-789", "Ford F-150");
+        
+        // Add initial tracking points so history isn't empty
+        trackingService.updateVehicleLocation("ABC-123", 40.7128, -74.0060);
+        trackingService.updateVehicleLocation("XYZ-789", 34.0522, -118.2437);
 
         boolean exit = false;
         while (!exit) {

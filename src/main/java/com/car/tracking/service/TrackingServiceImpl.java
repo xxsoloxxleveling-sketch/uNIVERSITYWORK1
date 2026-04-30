@@ -21,9 +21,13 @@ public class TrackingServiceImpl implements TrackingService {
 
     @Override
     public void printVehicleHistory(String plate) {
-        repository.findByPlate(plate).ifPresent(v -> {
+        repository.findByPlate(plate).ifPresentOrElse(v -> {
             System.out.println("History for " + plate + ":");
-            v.getHistory().forEach(System.out::println);
-        });
+            if (v.getHistory().isEmpty()) {
+                System.out.println("  > No tracking history found.");
+            } else {
+                v.getHistory().forEach(System.out::println);
+            }
+        }, () -> System.out.println("Vehicle not found."));
     }
 }
