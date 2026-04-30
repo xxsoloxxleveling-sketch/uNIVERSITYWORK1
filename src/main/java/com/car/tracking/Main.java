@@ -26,7 +26,8 @@ public class Main {
             System.out.println("1. Update Location");
             System.out.println("2. Show Fleet");
             System.out.println("3. View History");
-            System.out.println("4. Exit");
+            System.out.println("4. Add New Vehicle");
+            System.out.println("5. Exit");
             System.out.print("Select: ");
 
             String choice = scanner.nextLine();
@@ -42,7 +43,12 @@ public class Main {
                     System.out.print("Plate: "); String p = scanner.nextLine();
                     trackingService.printVehicleHistory(p);
                 }
-                case "4" -> exit = true;
+                case "4" -> {
+                    System.out.print("New Plate Number: "); String p = scanner.nextLine();
+                    System.out.print("Vehicle Model: "); String m = scanner.nextLine();
+                    fleetManager.addVehicle(p, m);
+                }
+                case "5" -> exit = true;
                 default -> LoggerUtil.log("Invalid option!");
             }
         }
