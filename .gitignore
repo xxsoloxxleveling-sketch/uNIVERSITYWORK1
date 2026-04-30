@@ -1,0 +1,14 @@
+# Maven
+target/
+
+# NetBeans
+nbproject/private/
+build/
+nb-configuration.xml
+nbactions.xml
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.log
